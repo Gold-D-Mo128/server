@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
   });
 });
 
-router.post("/:id", (req, res) => {
+router.post("/", async (req, res) => {
   const { id } = req.params;
   const { message } = req.body;
 
