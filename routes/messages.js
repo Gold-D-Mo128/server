@@ -1,4 +1,5 @@
 const express = require("express");
+const Message = require("../models/message");
 const router = express.Router();
 
 router.get("/", (req, res) => {
@@ -11,17 +12,22 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  const { id } = req.params;
-  const { message } = req.body;
+  try {
+    console.log("body: ", req.body);
+    const body = req.body;
 
-  if (!message) {
-    res.status(418).send({ message: "no message" });
+    const newMessage = new Message({
+      id: body.id,
+      message: body.message,
+      dateCreated: body.date,
+      color: body.color,
+    });
+
+    await Message.create(newMessage);
+    res.send("Message Sent Successfully! ", newMessage);
+  } catch (e) {
+    console.log(e);
   }
-
-  res.send({
-    id: `is this your id? ${id}`,
-    message: `is this your message? ${message}`,
-  });
 });
 
 module.exports = router;

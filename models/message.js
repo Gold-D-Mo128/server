@@ -10,7 +10,7 @@ const messageSchema = new Schema({
   },
   message: {
     type: String,
-    required: false,
+    required: true,
     unique: false,
   },
   dateCreated: {

@@ -9,26 +9,26 @@ app.use(express.json());
 app.use("/messages", messagesRoute);
 
 const uri =
-  "mongodb+srv://modev:vFAQ493PA0exngwr@cluster0.cbmuuwx.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://modev:GfPft4ysrXoLTQvg@cluster0.cbmuuwx.mongodb.net/test";
 
-const database = (module.exports = () => {
+const database = () => {
   const connectionParams = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   };
 
+  // GfPft4ysrXoLTQvg
   try {
     mongoose.connect(uri, connectionParams);
-    console.log("database connecting successfully");
+    console.log("database connected");
   } catch (e) {
-    console.log("error connected to database", e);
+    console.log("error connecting to database", e);
   }
-});
-
+};
+// mongoose.on("connect",()=>{
+//   console.log("connected")
+// })
 app.listen(PORT, () => {
-  console.log(`server is running on : http://localhost:${PORT}`);
-
   database();
+  console.log(`server is running `);
 });
-
-("vFAQ493PA0exngwr");
