@@ -1,13 +1,8 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
 const messageSchema = new Schema({
-  id: {
-    type: Number,
-    required: true,
-    unique: true,
-  },
   message: {
     type: String,
     required: true,
@@ -25,6 +20,4 @@ const messageSchema = new Schema({
   },
 });
 
-const Message = mongoose.model("Message", messageSchema);
-
-module.exports = Message;
+export const Message = mongoose.model("Message", messageSchema);
