@@ -1,4 +1,4 @@
-import { connectDB } from "./models/connection.js";
+import { connectDB } from "./connection.js";
 import express from "express";
 import { messagesRouter } from "./routes/messagesRoutes.js";
 import cors from "cors";

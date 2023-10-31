@@ -24,6 +24,9 @@ messagesRouter.post("/", async (req, res) => {
     });
 
     // await Message.create(newMessage);
+    if (!body.message || !body.color) {
+      res.status(500).send({ message: "fields are missing " });
+    }
     await newMessage.save();
     res
       .status(200)
