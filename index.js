@@ -9,7 +9,7 @@ const PORT = 8000;
 
 
 
-app.use(limiter)
+
 app.use(cors());
 app.use(express.json());
 app.use("/messages", messagesRouter);
