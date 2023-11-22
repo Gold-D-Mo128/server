@@ -13,7 +13,6 @@ app.use(limiter)
 app.use(cors());
 app.use(express.json());
 app.use("/messages", messagesRouter);
-app.use('/messages', limiter)
 
 app.listen(PORT, () => {
   // database();
